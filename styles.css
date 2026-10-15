@@ -408,3 +408,24 @@ button {
     transition-duration: 0.001ms !important;
   }
 }
+.choice-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.choice-image {
+  width: 100%;
+  max-width: 180px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+.choice-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+}
