@@ -37,20 +37,35 @@
 
       choices: [
         {
-          value: 'epal',
-          label: '🍎 Epal'
+         {
+  value: 'epal',
+  label: 'Epal',
+  image: 'assets/epal.png'
+}
         },
         {
-          value: 'pisang',
-          label: '🍌 Pisang'
-        },
-        {
-          value: 'susu',
-          label: '🥛 Susu'
-        },
-        {
-          value: 'lobak',
-          label: '🥕 Lobak'
+         choices: [
+  {
+    value: 'epal',
+    label: 'Epal',
+    image: 'assets/epal.png'
+  },
+  {
+    value: 'pisang',
+    label: 'Pisang',
+    image: 'assets/pisang.png'
+  },
+  {
+    value: 'susu',
+    label: 'Susu',
+    image: 'assets/susu.png'
+  },
+  {
+    value: 'lobak',
+    label: 'Lobak',
+    image: 'assets/lobak.png'
+  }
+]
         }
       ]
     },
@@ -757,8 +772,21 @@
           'choice-card';
 
 
-        button.textContent =
-          choice.label;
+        button.innerHTML = `
+  ${
+    choice.image
+      ? `<img
+          src="${choice.image}"
+          alt="${choice.label}"
+          class="choice-image"
+        >`
+      : ''
+  }
+
+  <span class="choice-label">
+    ${choice.label}
+  </span>
+`;
 
 
         button.addEventListener(
