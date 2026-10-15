@@ -9,7 +9,7 @@
    */
 
   const BACKEND_URL =
-    'PASTE_LINK_APPS_SCRIPT_EXEC_DI_SINI';
+    'https://script.google.com/macros/s/AKfycbxuR9tYn3p1jRbnDnLkkHTEAZoxG1nyeuweVgruB1-FqKlHybBBaurSOud12m9PobBvEg/exec';
 
 
   /*
