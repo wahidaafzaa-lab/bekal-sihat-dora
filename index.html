@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bekal Sihat Dora</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <main id="app">
+
+    <section id="startScreen" class="screen active">
+
+      <h1>Bekal Sihat Dora</h1>
+
+      <p>
+        Dengar ayat, pilih gambar yang betul dan sebut semula dengan jelas.
+      </p>
+
+      <label>
+        Nama Murid
+        <input
+          id="studentName"
+          type="text"
+          placeholder="Masukkan nama"
+        />
+      </label>
+
+      <label>
+        Kelas
+        <input
+          id="studentClass"
+          type="text"
+          placeholder="Contoh: 3 Melur"
+        />
+      </label>
+
+      <div class="audio-speed">
+
+        <p>Kelajuan Audio</p>
+
+        <button
+          type="button"
+          data-speed="1"
+          class="speed-btn active"
+        >
+          1×
+        </button>
+
+        <button
+          type="button"
+          data-speed="0.7"
+          class="speed-btn"
+        >
+          0.7×
+        </button>
+
+        <button
+          type="button"
+          data-speed="0.5"
+          class="speed-btn"
+        >
+          0.5×
+        </button>
+
+      </div>
+
+      <label class="inclusive-option">
+
+        <input
+          id="inclusiveMode"
+          type="checkbox"
+        />
+
+        Mod Mesra Saya
+
+      </label>
+
+      <button
+        id="startGameBtn"
+        type="button"
+        class="primary-btn"
+      >
+        Mula Permainan
+      </button>
+
+    </section>
+
+
+    <section
+      id="gameScreen"
+      class="screen"
+    >
+
+      <header id="hud">
+
+        <div>
+          <strong id="hudName">Murid</strong>
+        </div>
+
+        <div>
+          Misi:
+          <span id="hudCheckpoint">1</span>/5
+        </div>
+
+        <div>
+          ⭐
+          <span id="hudScore">0</span>
+        </div>
+
+      </header>
+
+
+      <section id="gameArea">
+
+        <div id="worldContainer"></div>
+
+
+        <div
+          id="challengePanel"
+          class="challenge-panel hidden"
+        >
+
+          <h2 id="challengeTitle">
+            Misi
+          </h2>
+
+          <p id="challengeInstruction"></p>
+
+          <div id="challengeContent"></div>
+
+
+          <div class="audio-controls">
+
+            <button
+              id="playSentenceBtn"
+              type="button"
+              class="secondary-btn"
+            >
+              🔊 Dengar Ayat
+            </button>
+
+          </div>
+
+
+          <div
+            id="recordingPanel"
+            class="recording-panel hidden"
+          >
+
+            <h3>Rakaman Sebutan</h3>
+
+            <p id="recordStatus">
+              Tekan “Mula Rakam” apabila sudah bersedia.
+            </p>
+
+            <div class="record-buttons">
+
+              <button
+                id="startRecordBtn"
+                type="button"
+              >
+                🎤 Mula Rakam
+              </button>
+
+              <button
+                id="stopRecordBtn"
+                type="button"
+                disabled
+              >
+                ⏹ Berhenti
+              </button>
+
+              <button
+                id="playRecordingBtn"
+                type="button"
+                disabled
+              >
+                ▶ Dengar Rakaman
+              </button>
+
+              <button
+                id="redoRecordingBtn"
+                type="button"
+                disabled
+              >
+                ↻ Rakam Semula
+              </button>
+
+            </div>
+
+            <audio
+              id="recordedAudio"
+              controls
+              class="hidden"
+            ></audio>
+
+            <button
+              id="confirmSpeechBtn"
+              type="button"
+              class="primary-btn hidden"
+            >
+              ✓ Sahkan Sebutan
+            </button>
+
+          </div>
+
+
+          <div
+            id="challengeFeedback"
+            class="feedback"
+            aria-live="polite"
+          ></div>
+
+
+          <button
+            id="challengeContinueBtn"
+            type="button"
+            class="primary-btn hidden"
+          >
+            Seterusnya ➜
+          </button>
+
+        </div>
+
+      </section>
+
+    </section>
+
+
+    <section
+      id="savingScreen"
+      class="screen"
+    >
+
+      <h2>Menyimpan Rekod...</h2>
+
+      <p>
+        Tunggu sebentar.
+      </p>
+
+    </section>
+
+
+    <section
+      id="resultScreen"
+      class="screen"
+    >
+
+      <h2>Tahniah!</h2>
+
+      <p id="resultName"></p>
+
+      <div id="resultSummary"></div>
+
+      <button
+        id="playAgainBtn"
+        type="button"
+        class="primary-btn"
+      >
+        Main Semula
+      </button>
+
+    </section>
+
+
+    <div
+      id="toast"
+      class="toast hidden"
+      aria-live="polite"
+    ></div>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <script src="world.js"></script>
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+
+</body>
+</html>
